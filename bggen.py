@@ -12,7 +12,6 @@ from os import path
 from datetime import date
 
 
-#TODO: colocar como docstrings
 S_TAG = """
     <static>
       <duration>%.1f</duration>
