@@ -7,7 +7,7 @@ from the parameters given by the user in the command line.
 
 
 Basic usage:
-	bggen.py -p /complete/path/to/wallpapers/folder -d 10
+	bggen.py -p /complete/path/to/wallpapers/folder -t 10
 
 
 
