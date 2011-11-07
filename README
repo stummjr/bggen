@@ -3,7 +3,9 @@ README
 A simple tool to create a configuration file for GNOME/Unity Wallpaper manager,
 based on paths to wallpaper files. It outputs to stdout an XML file to present
 a wallpapers slideshow in the desktop background. The images files are obtained
-from the parameters given by the user in the command line.
+from the parameters given by the user in the command line. The XML outputed to
+stdout can be redirected to a XML file, which can be loaded from the disk using
+the GNOME wallpaper tool.
 
 
 Basic usage:
