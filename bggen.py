@@ -63,16 +63,17 @@ def parse_arguments():
   p = argparse.ArgumentParser()
   p.add_argument('-p', action = 'append', dest = 'path', default = [], 
                   help = 'Path to the wallpapers', required = True)
-  p.add_argument('-t', dest = 'duration', default = 40, required = True,
+  p.add_argument('-t', dest='duration', default=40, type=int, required=True,
                   help = 'Time (minutes) before changing to next wallpaper.')
   args = p.parse_args()
   return args.path, args.duration
 
 
-#TODO: expand . and .. in relative paths
 def expand_path(path_list):
   l = []
   for p in path_list:
+    if not p.startswith('/'): # expand relative path
+      p = os.getcwd() + '/' + p
     if path.isdir(p):
       l = l + filter(path.isfile, map(lambda x : p + '/' + x, os.listdir(p)))
     elif path.isfile(p):
@@ -86,7 +87,7 @@ def format_xml(path_list, duration):
     previous = path_list[0]
     for p in path_list[1:]:
       sys.stdout.write(static_tag(duration * 60.0, previous) + "\n")
-      sys.stdout.write(transition_tag(5.0, previous, p) + "\n") #XXX: constant!
+      sys.stdout.write(transition_tag(5.0, previous, p) + "\n")
       previous = p
     sys.stdout.write(BG_CTAG)
 
