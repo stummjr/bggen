@@ -65,7 +65,7 @@ def parse_arguments():
                   help = 'Path to the wallpapers', required = True)
   p.add_argument('-t', dest='duration', default=40, type=int, required=True,
                   help = 'Time (minutes) before changing to next wallpaper.')
-  p.add_argument('-f', dest='filename', default='', help='Output filename.')
+  p.add_argument('-o', dest='filename', default='', help='Output filename.')
   args = p.parse_args()
   return args.path, args.duration, args.filename
 
